@@ -73,7 +73,7 @@ REAL(4), PARAMETER           :: PC_KK         =       0.1099965                 
 REAL(4), PARAMETER           :: PC_KP         =       0.01882681                ! Proportional gain for pitch controller at rated pitch (zero), sec.
 REAL(4), PARAMETER           :: PC_MaxPit     =       1.570796                  ! Maximum pitch setting in pitch controller, rad.
 REAL(4), PARAMETER           :: PC_MaxRat     =       0.1396263                 ! Maximum pitch  rate (in absolute value) in pitch  controller, rad/s.
-REAL(4), PARAMETER           :: PC_MinPit     =       -0.0174533                       ! Minimum pitch setting in pitch controller, rad.
+REAL(4), PARAMETER           :: PC_MinPit     =       0.0174533                       ! Minimum pitch setting in pitch controller, rad.
 REAL(4), PARAMETER           :: PC_RefSpd     =     122.9096                    ! Desired (reference) HSS speed for pitch controller, rad/s.
 REAL(4), SAVE                :: PitCom    (3)                                   ! Commanded pitch of each blade the last time the controller was called, rad.
 REAL(4)                      :: PitComI                                         ! Integral term of command pitch, rad.
@@ -90,8 +90,8 @@ REAL(4), PARAMETER           :: VS_DT         = 0.000125  !JASON:THIS CHANGED FO
 REAL(4), PARAMETER           :: VS_MaxRat     =   15000.0                       ! Maximum torque rate (in absolute value) in torque controller, N-m/s.
 REAL(4), PARAMETER           :: VS_MaxTq      =   47402.91                      ! Maximum generator torque in Region 3 (HSS side), N-m. -- chosen to be 10% above VS_RtTq = 43.09355kNm
 REAL(4), PARAMETER           :: VS_Rgn2K      =       1.5                  ! Generator torque constant in Region 2 (HSS side), N-m/(rad/s)^2.
-REAL(4), PARAMETER           :: VS_Rgn2Sp     =      91.21091                   ! Transitional generator speed (HSS side) between regions 1 1/2 and 2, rad/s.
-REAL(4), PARAMETER           :: VS_Rgn3MP     =       0.0                ! Minimum pitch angle at which the torque is computed as if we are in region 3 regardless of the generator speed, rad. -- chosen to be 1.0 degree above PC_MinPit
+REAL(4), PARAMETER           :: VS_Rgn2Sp     =      71                   ! Transitional generator speed (HSS side) between regions 1 1/2 and 2, rad/s.
+REAL(4), PARAMETER           :: VS_Rgn3MP     =       0.0349066                ! Minimum pitch angle at which the torque is computed as if we are in region 3 regardless of the generator speed, rad. -- chosen to be 1.0 degree above PC_MinPit
 REAL(4), PARAMETER           :: VS_RtGnSp     =     121.6805                    ! Rated generator speed (HSS side), rad/s. -- chosen to be 99% of PC_RefSpd
 REAL(4), PARAMETER           :: VS_RtPwr      = 5296610.0                       ! Rated generator generator power in Region 3, Watts. -- chosen to be 5MW divided by the electrical generator efficiency of 94.4%
 REAL(4), SAVE                :: VS_Slope15                                      ! Torque/speed slope of region 1 1/2 cut-in torque ramp , N-m/(rad/s).
